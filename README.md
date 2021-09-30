@@ -28,11 +28,11 @@ The general processing workflow to solve for this issue is relatively simple:
 
 ## Performance Bottlenecks and solutions: ##
 
-●	Reducing XY resolution and tolerance to 0.01 in environment settings (didn’t have much of an effect but hypothetically still good to do)
-●	Utilizing in-memory workspace for temporary layers used intermediate geoprocessing steps: RAM is a lot faster than disk I/O, even with an nvme SSD.
-●	Dissolving all the buffers before using them in subsequent geoprocessing tasks, so that ArcPy wasn’t iterating through thousands of features later in the script.
-●	The main bottleneck was the performance of the Clip tool and the fact that I was using it several times in the script. I used it early on to clip the roads and wetlands layers to the 2km buffer around each point, under the logic that buffering those layers would mean a smaller dataset for the subsequent buffer tool to work with.  The issue is the Clip tool is slow, presumably due to it having to load an entire layer to memory and crack ALL THE FEATURES to the clip geometry.
-●	Instead of clipping roads and wetlands prior to buffering, I used SelectLayerByLocation (i..e., Select by Geometry) to retrieve features in the roads and wetlands layers that intersected the 2km buffer around points. This dramatically improved performance.  I didn’t have time to research, but my guess is the underlying code for this tool utilizes SQL instead of cracking / reading / writing features so it’s just a straight read function as opposed to a more intensive geoprocessing function like Clip.
-●	Only using Clip once, on the results of the Erase tool, at the end of the script.
-●	Changing the script to run from the command line instead of from ArcPro. By most reports this speeds things up considerably since ArcPro / ArcMap’s (and Python IDE’s) traceback functions add a considerable amount of overhead.
+- Reducing XY resolution and tolerance to 0.01 in environment settings (didn’t have much of an effect but hypothetically still good to do)
+-	Utilizing in-memory workspace for temporary layers used intermediate geoprocessing steps: RAM is a lot faster than disk I/O, even with an nvme SSD.
+-	Dissolving all the buffers before using them in subsequent geoprocessing tasks, so that ArcPy wasn’t iterating through thousands of features later in the script.
+-	The main bottleneck was the performance of the Clip tool and the fact that I was using it several times in the script. I used it early on to clip the roads and wetlands layers to the 2km buffer around each point, under the logic that buffering those layers would mean a smaller dataset for the subsequent buffer tool to work with. The issue is the Clip tool is slow, presumably due to it having to load an entire layer to memory and crack ALL THE FEATURES to the clip geometry.
+-	Instead of clipping roads and wetlands prior to buffering, I used SelectLayerByLocation (i..e., Select by Geometry) to retrieve features in the roads and wetlands layers that intersected the 2km buffer around points. This dramatically improved performance.  I didn’t have time to research, but my guess is the underlying code for this tool utilizes SQL instead of cracking / reading / writing features so it’s just a straight read function as opposed to a more intensive geoprocessing function like Clip.
+-	Only using Clip once, on the results of the Erase tool, at the end of the script.
+-	Changing the script to run from the command line instead of from ArcPro. By most reports this speeds things up considerably since ArcPro / ArcMap’s (and Python IDE’s) traceback functions add a considerable amount of overhead.
 
