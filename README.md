@@ -58,7 +58,7 @@ _These scripts were written to handle (outdated) data provided with the lab exer
 - Stripping roads and wetland layers of attribute fields that weren’t needed, to cut down on read-time.
 - I wrote a script to do both of these, included in this file: deadbird_dataprep.py
 
-## Errors with intermediate geoprocessing layers:##
+## Errors with intermediate geoprocessing layers: ##
 
 Even with this, my script still threw an “Invalid Topology [Incomplete void poly.]” error when running the Erase Tool.  I presume this is because the buffer tools, albeit well intentioned, were creating bad geometry and weird void polygons (like under minimum  XY tolerance or something. I had originally written this script with the buffer outputs all being dissolved into one gigantic multipart feature. I turned off dissolve on the buffer outputs of the roads and wetlands layers and added a RepairGeometry() after each buffering step.  This dramatically increased script runtime, with roads taking 7-8 minutes to repair the geometry and wetlands taking 3-5 minutes to repair.  But the script completes without error this way. 
 
