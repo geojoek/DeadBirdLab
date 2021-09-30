@@ -1,7 +1,7 @@
 # DeadBirdLab
 ## ArcPy and other Python scripts to solve hypothetical public health GIS problem. ##
 
-These are geoprocessing scripts in ArcPy and Python 3.x to solve a hypothetical problem posed in the Spring 2020 GIS Programming Course (ECO 697K) taught at U-Mass Amherst. Affectionately known as the "Revenge of Dead Birds Lab"
+These are geoprocessing scripts in ArcPy and Python 3.x to solve a hypothetical problem posed in the Spring 2020 GIS Programming Course (ECO 697K) taught by my colleague Dr. Forrest Bowlick at U-Mass Amherst. Affectionately known as the "Revenge of Dead Birds! Lab"
 
 ## The hypothetical public health scenario: ##
 
@@ -15,7 +15,7 @@ The output of the script is a polygon feature class of buffers around roads that
 
 The general processing workflow to solve for this issue is relatively simple:
 
-1. Deal with all the point shapefiles:
+1. Deal with all the point shapefiles (See 'Shapefile Iterator' section below):
     1. Iterate through all of the single point shapefiles:
     2. Append each poiny to a newly created point featurelayer hosted in RAM
     3. Buffer 2km around each dead bird point feature 
@@ -46,5 +46,13 @@ The general processing workflow to solve for this issue is relatively simple:
 - Wetlands layer’s geometry had a lot of self-overlapping polygons. Needed to be repaired as this caused problems with 1000 bird scenario
 - Stripping roads and wetland layers of attribute fields that weren’t needed, to cut down on read-time.
 - I wrote a script to do both of these, included in this file: deadbird_dataprep.py
+
+## Errors with intermediate geoprocessing layers:##
+
+Even with this, my script still threw an “Invalid Topology [Incomplete void poly.]” error when running the Erase Tool.  I presume this is because the buffer tools, albeit well intentioned, were creating bad geometry and weird void polygons (like under minimum  XY tolerance or something. I had originally written this script with the buffer outputs all being dissolved into one gigantic multipart feature. I turned off dissolve on the buffer outputs of the roads and wetlands layers and added a RepairGeometry() after each buffering step.  This dramatically increased script runtime, with roads taking 7-8 minutes to repair the geometry and wetlands taking 3-5 minutes to repair.  But the script completes without error this way. 
+
+## Shapefile Iterator ##
+
+To deal with multiple shapefiles, my initial thought was to just merge them all. Several folks on Stack Exchange, however, reported that creating a blank featureLayer, iterating through the list of shapefiles, and using the Append tool, made fora much faster script.  
 
 
