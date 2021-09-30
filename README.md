@@ -41,3 +41,10 @@ The general processing workflow to solve for this issue is relatively simple:
 -	Only using Clip once, on the results of the Erase tool, at the end of the script.
 -	Changing the script to run from the command line instead of from ArcPro. By most reports this speeds things up considerably since ArcPro / ArcMap’s (and Python IDE’s) traceback functions add a considerable amount of overhead.
 
+## Fixing errors with source data ##
+
+- Wetlands layer’s geometry had a lot of self-overlapping polygons. Needed to be repaired as this caused problems with 1000 bird scenario
+- Stripping roads and wetland layers of attribute fields that weren’t needed, to cut down on read-time.
+- I wrote a script to do both of these, included in this file: deadbird_dataprep.py
+
+
