@@ -27,7 +27,7 @@ The general processing workflow to solve for this issue is relatively simple:
 3. Buffer these clipped roads & wetland layers
 4. Erase clipped wetland buffers from road buffers using Erase tool.
 5. Output of script is: road buffers, minus wetland buffered area, within 2km radius of dead bird
-6. Calculate and return land area and percentage of land:
+6. Calculate and return land area and percentage of land so the state knows how much pesticide to buy (ick):
     1. Iterate through result feature class of road-buffers-minus-wetland-buffers and sum up area of all features
     2. Iterate through all 2km buffer features around each dead bird and sum up area of all features
     3. Divide area of resulting feature class by area of 2km bird buffer to get percentage of area defined by 2km radius around each bird
