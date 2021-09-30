@@ -51,7 +51,7 @@ _These scripts were written to handle (outdated) data provided with the lab exer
 
 - MassDOT Roads: https://www.mass.gov/info-details/massgis-data-massachusetts-department-of-transportation-massdot-roads
 - MassDEP Wetlands: https://www.mass.gov/info-details/massgis-data-massdep-wetlands-2005
-- Zipped folder with 1000 shapefiles. Each containing a single point location somewhere in the state of Massachusetts, USA.
+- Zipped folder with 1000 shapefiles. Each containing a single point located somewhere in the state of Massachusetts, USA.
 
 ## Fixing errors with source data ##
 
