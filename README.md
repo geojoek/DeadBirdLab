@@ -43,7 +43,7 @@ The general processing workflow to solve for this issue is relatively simple:
 -	Instead of clipping roads and wetlands prior to buffering, I used SelectLayerByLocation (i..e., Select by Geometry) to retrieve features in the roads and wetlands layers that intersected the 2km buffer around points. This dramatically improved performance.  I didn’t have time to research, but my guess is the underlying code for this tool utilizes SQL instead of cracking / reading / writing features so it’s just a straight read function as opposed to a more intensive geoprocessing function like Clip.
 -	Only using Clip once, on the results of the Erase tool, at the end of the script.
 -	Changing the script to run from the command line instead of from ArcPro. By most reports this speeds things up considerably since ArcPro / ArcMap’s (and Python IDE’s) traceback functions add a considerable amount of overhead.
--	To be frank, this sort of problem is a perfect job for PostGIS / SQL. ArcGIS and ArcPy, as they are currrently engineered, are no longer the most efficient solution for dealing with these kinds of geoprocessing problems.
+-	To be frank, this sort of problem is a perfect job for PostGIS / SQL. ArcGIS and ArcPy, as they are currrently engineered (still single-threaded), are no longer the most efficient solution for dealing with these kinds of geoprocessing problems. I have been told by other folks who've tackled this problem with SQL that it takes seconds/minutes, as opposed to the hour+ this script takes to run on a average-spec windows machine.
 
 ## Source Data: ##
 
