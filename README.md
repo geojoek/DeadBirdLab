@@ -64,6 +64,6 @@ Even with this, my script still threw an “Invalid Topology [Incomplete void po
 
 ## Shapefile Iterator ##
 
-To deal with multiple shapefiles, my initial thought was to just merge them all. Several folks on Stack Exchange, however, reported that creating a blank featureLayer, iterating through the list of shapefiles, and using the Append tool, made fora much faster script.  
+To deal with multiple shapefiles, my initial thought was to just merge them all into a single feature layer / shapefile. Several folks on Stack Exchange, however, reported that creating a blank featureLayer, iterating through the list of shapefiles, and using the Append tool, made fora much faster script.  
 
 
