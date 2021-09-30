@@ -1,6 +1,9 @@
 # DeadBirdLab
 ## ArcPy and other Python scripts to solve hypothetical public health GIS problem. ##
 
+![Screenshot of script output](/Script_Output_Screenshot.png)
+
+
 These are geoprocessing scripts in ArcPy and Python 3.x to solve a hypothetical problem posed in the Spring 2020 GIS Programming Course (ECO 697K) taught by my colleague Dr. Forrest Bowlick at U-Mass Amherst. Affectionately known as the "Revenge of Dead Birds! Lab"
 
 _Note: these scripts are written for Python 3.x and ArcPy with associated Python 3 bindings.  To use them, you will have to have ArcPro 2.x installed on your computer and point your Python IDE towards ArcPy.  See notes in scripts.
