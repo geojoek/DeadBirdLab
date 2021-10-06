@@ -25,16 +25,16 @@ timestamp("Modules loaded. Starting geoprocessing")
 # PARAMETERS!-----------------------------
 
 # input file location parameters
-shapefileFolder = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Lab3_DeadBird_DATA\DeadBirds\1000_DeadBirds"
-roads = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Lab3_DeadBird_DATA\cleanData\fixedRoads.shp"
-wetlands = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Lab3_DeadBird_DATA\cleanData\NWI_POLY.shp"
+shapefileFolder = r""
+roads = r""
+wetlands = r""
 
 # output file location parameters
-mergedShapefiles = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Results\merged_deadBirds_1000.shp"
-sprayOutFile = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Results\areas_to_spray_1000Birds.shp"
-outfile_deadbirdBuffer = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Results\deadbirdBuffer_out.shp"
-outfile_roadbuffer = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Results\roadbuffer_out.shp"
-outfile_wetlandbuffer = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Results\wetlandbuffer_out.shp"
+mergedShapefiles = r""
+sprayOutFile = r""
+outfile_deadbirdBuffer = r""
+outfile_roadbuffer = r""
+outfile_wetlandbuffer = r""
 
 # parameters for buffering. Distance in meters.
 deadbirdBufferDist = "2000"
