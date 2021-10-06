@@ -21,9 +21,9 @@ timestamp("Modules loaded. Starting geoprocessing")
 # PARAMETERS!-----------------------------
 
 # input file location parameters
-workspace = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Lab3_DeadBird_DATA"
-roads = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Lab3_DeadBird_DATA\MassDOT_Roads_SHP\EOTROADS_ARC.shp"
-wetlands = r"Z:\Documents\Python_Course\GISProgramming_Lab3_DeadBird\Lab3_DeadBird_DATA\Wetlands\NWI_POLY.shp"
+workspace = r""
+roads = r""
+wetlands = r""
 
 # output file locaton parameters
 newOutFolder = r"\cleanData"
